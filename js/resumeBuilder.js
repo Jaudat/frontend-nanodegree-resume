@@ -5,7 +5,7 @@ var bio = {
     mobile: 1234567890,
     email: "sjh.jaudat@gmail.com",
     github: "https://github.com/jaudat",
-    location: "Toronto, Canada"
+    location: "Toronto, ON"
   },
   welcomeMessage:  "Welcome to my online resume",
   skills: ["Python", "Java","Javascript"],
@@ -48,7 +48,7 @@ var work = {
   jobs: [{
     employer: "IBM Canada", 
     title: "Software Engineer",
-    location: "Toronto, Canada",
+    location: "Toronto, ON",
     dates: 'in progress',
     description: "Programming and Stuff" 
   }],
@@ -82,7 +82,7 @@ var work = {
 var education = {
   schools: [{
     name: "University of Toronto",
-    location: "Toronto, Ontario",
+    location: "Toronto, ON",
     degree: "BSc",
     majors: ["CS"],
     dates: "2008-2013"
@@ -180,3 +180,5 @@ bio.display();
 work.display();
 education.display();
 projects.display();
+
+$('#mapDiv').append(googleMap);
