@@ -111,14 +111,18 @@ var education = {
       formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
       formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
       formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-      formattedMajors = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
       formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
 
       $('.education-entry:last').append(formattedName);
       $('.education-entry:last').append(formattedDegree);
       $('.education-entry:last').append(formattedLocation);
       $('.education-entry:last').append(formattedDates);
-      $('.education-entry:last').append(formattedMajors);
+
+      var majors = education.schools[school].majors;
+      for (major in majors) {
+        formattedMajors = HTMLschoolMajor.replace("%data%", majors[major]);
+        $('.education-entry:last').append(formattedMajors);
+      }
     }
 
     $("#education").append(HTMLonlineClasses);
@@ -137,6 +141,42 @@ var education = {
   }
 }
 
+
+var projects = {
+  projects: [{
+    title: "Online resume",
+    dates: "2016",
+    description: "Online Resume for udacity",
+    images: ["images/197x148.gif", "images/197x148.gif"]
+  }],
+  display: function() {
+    var formattedTitle;
+    var formattedDates;
+    var formattedDescription;
+    var formattedImages;
+
+    for (project in projects.projects) {
+      $("#projects").append(HTMLprojectStart);
+
+      formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+      formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
+      formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+
+      $(".project-entry:last").append(formattedTitle);
+      $(".project-entry:last").append(formattedDates);
+      $(".project-entry:last").append(formattedDescription);
+
+      var images = projects.projects[project].images;
+      for (image in images) {
+        formattedImages = HTMLprojectImage.replace("%data%", images[image]);
+        $(".project-entry:last").append(formattedImages);
+      }
+    }
+  }
+}
+
+
 bio.display();
 work.display();
 education.display();
+projects.display();
