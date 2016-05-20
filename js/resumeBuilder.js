@@ -45,6 +45,45 @@ for (skill in bio.skills) {
   $("#skills").append(formattedSkill);
 }
 
+/////////////////////////////////////////
+var work = {
+  jobs: [{
+    employer: "IBM Canada", 
+    title: "Software Engineer",
+    location: "Toronto, Canada",
+    dates: 'in progress',
+    description: "Programming and Stuff" 
+  }],
+  display: function() {
+
+  }
+}
+
+
+var formattedEmployer;
+var formattedTitle;
+var formattedLocation;
+var formattedDates;
+var formattedDescription;
+
+for (job in work.jobs) {
+  $('#workExperience').append(HTMLworkStart);
+
+  formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[job].location);
+  formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+  formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+
+
+  $('.work-entry:last').append(formattedEmployer);
+  $('.work-entry:last').append(formattedTitle);
+  $('.work-entry:last').append(formattedDates);
+  $('.work-entry:last').append(formattedLocation);
+  $('.work-entry:last').append(formattedDescription);
+}
+
+//////////////////////////////////////////////
 var education = {
   schools: [{
     name: "University of Toronto",
@@ -65,18 +104,4 @@ var education = {
   }
 }
 
-
-
-
-var work = {
-  jobs: [{
-    employer: string 
-    title: string 
-    location: string 
-    dates: string (Can be 'in progress')
-    description: string 
-  }],
-  display: function() {
-
-  }
-}
+$("#education")
